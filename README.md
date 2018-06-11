@@ -63,7 +63,7 @@ Before you begin, make sure your Model 01 is connected to your computer.
 ### Option 1: From the command line
 
 ```sh
-cd Model01-Firmware
+cd $HOME/Documents/Arduino/Model01-Firmware
 make flash
 ```
 
