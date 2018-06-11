@@ -336,7 +336,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // The HostPowerManagement plugin allows us to turn LEDs off when then host
   // goes to sleep, and resume them when it wakes up.
-  HostPowerManagement
+  HostPowerManagement,
   
   // 
   OneShot,
