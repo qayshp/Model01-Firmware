@@ -35,9 +35,6 @@
 // Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
 #include "Kaleidoscope-NumPad.h"
 
-// Support for an "LED off mode"
-#include "LED-Off.h"
-
 // Support for the "Boot greeting" effect, which pulses the 'LED' button for 10s
 // when the keyboard is connected to a computer (or that computer is powered on)
 #include "Kaleidoscope-LEDEffect-BootGreeting.h"
@@ -300,11 +297,14 @@ static void versionInfoMacro(uint8_t keyState) {
 
 static void anyKeyMacro(uint8_t keyState) {
   static Key lastKey;
-  if (keyToggledOn(keyState))
+  bool toggledOn = false;
+  if (keyToggledOn(keyState)) {
     lastKey.keyCode = Key_A.keyCode + (uint8_t)(millis() % 36);
+    toggledOn = true;
+  }
 
   if (keyIsPressed(keyState))
-    kaleidoscope::hid::pressKey(lastKey);
+    kaleidoscope::hid::pressKey(lastKey, toggledOn);
 }
 
 
