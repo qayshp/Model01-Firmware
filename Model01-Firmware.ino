@@ -541,12 +541,14 @@ void setup() {
   // additional layers in EEPROM. For now, we reserve space for five layers. If
   // one wants to use these layers, just set the default layer to one in EEPROM,
   // by using the `settings.defaultLayer` Focus command.
-  EEPROMKeymap.setup(5, EEPROMKeymap.Mode::EXTEND);
 
   //
   ActiveModColorEffect.highlight_color = CRGB(0x00, 0xff, 0xff);
   ActiveModColorEffect.sticky_color = CRGB(0xff, 0x00, 0x00);
   OneShot.hold_time_out = 500;
+  // by using the `settings.defaultLayer` Focus command, or by using the
+  // `keymap.onlyCustom` command to use EEPROM layers only.
+  EEPROMKeymap.setup(5);
 }
 
 /** loop is the second of the standard Arduino sketch functions.
